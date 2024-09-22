@@ -1,0 +1,92 @@
+<html>
+<head>
+    <title>INST377 - Lab 4 - Ansh Rekhi</title>
+    <style>
+        section {
+            border: 2px solid black;
+            margin: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+
+<body>
+<!-- Page Heading -->
+    <h1 id="pageHeading">INST377 - Lab 4 - Ansh Rekhi</h1>
+
+
+<!-- Add Text section with js function -->
+<section>
+    <button onclick="addText()">Add Text</button>
+</section>
+<script type = 'text/javascript'>
+    function addText() {
+        const heading = document.getElementById('pageHeading');
+        heading.textContent += ' Add Text';
+    }
+</script>
+
+
+<!-- Alert Me section with js function -->
+<section>
+    <form id="alertForm">
+        <input type="text" id="nameInput" placeholder="Enter your name" required>
+        <button type="submit">Alert Me</button>
+    </form>
+</section>
+<script type = 'text/javascript'>
+    document.getElementById('alertForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const name = document.getElementById('nameInput').value;
+        alert('Hi ' + name + '!');
+    });
+</script>
+
+
+<!-- Change Color section with js function -->
+<section>
+    <button onclick="changeColor()">Change Color</button>
+</section>
+<script type = 'text/javascript'>
+     document.addEventListener('DOMContentLoaded', function () {
+            setInitialColor();  // Set initial color to white
+        });
+
+        function setInitialColor() {
+            // Explicitly set initial background color
+            document.body.style.backgroundColor = 'white';
+        }
+
+        function changeColor() {
+            // Toggle color between white and green
+            document.body.style.backgroundColor = document.body.style.backgroundColor === 'white' ? 'green' : 'white';
+        }
+</script>
+
+
+<!-- Text Tester section with js function -->
+<section>
+    <form id="textForm">
+        <input type="text" id="textInput" placeholder="Enter text">
+        <button type="submit">Validate Text</button>
+    </form>
+</section>
+<script type = 'text/javascript'>
+    document.getElementById('textForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const text = document.getElementById('textInput').value;
+        var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+        if (validation.test(text)) {
+            alert('Special character found!');
+        } else {
+            document.getElementById('textInput').value = '';
+        }
+    });
+</script>
+
+
+
+
+</body>
+</html>
